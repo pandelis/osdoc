@@ -48,3 +48,13 @@ In this case, the interval between successive presentations of my_sketchpad is u
 The bottom line is: If you want timing to be perfectly controlled, make sure your items are executed as part of the same sequence! Or you can write an inline_script, of course, in which case you have full control.
 
 [brm]: http://www.springerlink.com/content/n264513n66704v33/
+
+Resolution
+----------
+
+Be careful, in fullscreen mode, the resolution set in OpenSesame is ignored. PsychoPy or Expyriment do not allow you to change the actual resolution in a clean way for now. So you'll have to do this in the display settings of your operating system. More specifically, the way that the resolution is used depends on the back-end. In PsychoPy, the resolution is used to specify the size parameter of the Window object (link). For Expyriment, the resolution is used to specify the window_size parameter of the Screen object (link), which is also ignored in fullscreen mode. 
+ 
+Refresh Rate
+------------
+
+You can modify the Refresh Rate used in fullscreen mode in the display settings of your operating system. If you want a precise control of your sketchpad duration, you can use the following rule of thumb. Duration of refresh rate * (Number of Refresh Rate you want - 1) + 1ms. For example, if you want to present a stimulus for 2 frames on a 100Hz monitor, specifying a delay of 11ms is fine. This will give the operating 9ms to deal with potential hick-ups, which should be more than enough. (Obviously, specifying a delay of 10 milliseconds or less is not fine, as then the stimulus may be presented for only a single frame.)
